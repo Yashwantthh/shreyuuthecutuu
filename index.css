@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #FDF8F4;
+  color: #4A3F35;
+}
+
+.cute-shadow {
+  box-shadow: 8px 8px 0px rgba(232, 180, 184, 0.3);
+}
+
+.photo-frame {
+  border: 8px solid #E8B4B8;
+  border-radius: 20px;
+  padding: 12px;
+  background-color: white;
+  transform: rotate(-3deg);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photo-frame:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(232, 180, 184, 0.25),
+              0 8px 10px -6px rgba(232, 180, 184, 0.15);
+}
+
+.doodle {
+  position: absolute;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.flower-doodle {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.2;
+  pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 8px rgba(232, 180, 184, 0.3));
+}
+
+.flower-doodle:hover {
+  opacity: 0.6;
+  transform: scale(1.3) rotate(15deg);
+  filter: drop-shadow(0 0 12px rgba(232, 180, 184, 0.5));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-15px) rotate(5deg); }
+  50% { transform: translateY(-5px) rotate(-3deg); }
+  75% { transform: translateY(-10px) rotate(2deg); }
+}
+
+.floating {
+  animation: float 8s ease-in-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #E8B4B8, #D88E95);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.canvas-container {
+  background: repeating-linear-gradient(
+    45deg,
+    #FDF8F4,
+    #FDF8F4 10px,
+    #F5EBE6 10px,
+    #F5EBE6 20px
+  );
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDF8F4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E8B4B8;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D88E95;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+.note-paper {
+  background-color: white;
+  background-image: linear-gradient(#F5EBE6 1px, transparent 1px);
+  background-size: 100% 2em;
+  padding: 1em;
+  line-height: 2em;
+  border-radius: 12px;
+}
+
+/* Honeycomb Pattern */
+.honeycomb {
+  background-color: #FDF8F4;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='90' viewBox='0 0 52 90' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0h2v90h-2V0zm-2-2c0 1.105-.895 2-2 2h-2v90h2c1.105 0 2 .895 2 2v-94zm-7-88v90h2V0h-2zM6 90h2V0H6v90zm-4 0h2V0H2v90zm-2 2c0-1.105.895-2 2-2h2V0H2C.895 0 0 .895 0 2v90z' fill='%23E8B4B8' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Card Styles */
+.wellness-card {
+  @apply bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl;
+  background-image: 
+    radial-gradient(circle at 100% 100%, #E8B4B8 0.5rem, transparent 0.5rem),
+    radial-gradient(circle at 0 100%, #E8B4B8 0.5rem, transparent 0.5rem),
+    radial-gradient(circle at 100% 0, #E8B4B8 0.5rem, transparent 0.5rem),
+    radial-gradient(circle at 0 0, #E8B4B8 0.5rem, transparent 0.5rem);
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply bg-primary-light text-white px-6 py-3 rounded-full 
+         hover:bg-primary transition-all duration-300
+         focus:outline-none focus:ring-2 focus:ring-primary-light focus:ring-opacity-50
+         transform hover:scale-105 active:scale-95;
+}
+
+.btn-secondary {
+  @apply bg-secondary-light text-primary px-6 py-3 rounded-full
+         hover:bg-secondary transition-all duration-300
+         focus:outline-none focus:ring-2 focus:ring-secondary-light focus:ring-opacity-50
+         transform hover:scale-105 active:scale-95;
+}
+
+/* Animation Classes */
+.hover-grow {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.hover-float {
+  @apply transition-all duration-300 hover:-translate-y-2;
+}
+
+.spin-slow {
+  @apply animate-spin;
+  animation-duration: 3s;
+}
